@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class Ball : MonoBehaviour
 {
     const float DESTROYTIME = 1.0f;
 
-    public IObjectPool<GameObject> pool { get; set; }
+    public Pool pool;
 
     public void DesrtroyBall()
     {

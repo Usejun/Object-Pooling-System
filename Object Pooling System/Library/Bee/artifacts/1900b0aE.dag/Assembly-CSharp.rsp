@@ -354,7 +354,8 @@
 -analyzer:"D:/Unity/Editor/2022.3.13f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Ball.cs"
 "Assets/Scripts/CreateObject.cs"
-"Assets/Scripts/ObjectPooling.cs"
+"Assets/Scripts/ObjectPoolingSystem.cs"
+"Assets/Scripts/Pool.cs"
 "Assets/Scripts/Singleton.cs"
 -langversion:9.0
 
