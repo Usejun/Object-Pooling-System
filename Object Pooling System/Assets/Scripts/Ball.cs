@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    const float DESTROYTIME = 1.0f;
-
     public Pool pool;
 
-    public void DesrtroyBall()
+    public System.Action<Ball> move = null;
+
+    public Vector3 location;
+
+    private void Update()
     {
-        StartCoroutine(DelayToDestroy());
+        move?.Invoke(this);
+    }
+
+    public void DesrtroyBall(float destoryDelay)
+    {
+        StartCoroutine(DelayToDestroy(destoryDelay));
     }
 
     public void ChangeRandomColor()
@@ -19,10 +26,11 @@ public class Ball : MonoBehaviour
         renderer.material.color = Random.ColorHSV();
     }
 
-    private IEnumerator DelayToDestroy()
+    private IEnumerator DelayToDestroy(float destoryDelay)
     {
-        yield return new WaitForSeconds(DESTROYTIME);
+        yield return new WaitForSeconds(destoryDelay);
 
+        move = null;
         pool.Release(gameObject);
     }
 }
